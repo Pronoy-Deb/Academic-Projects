@@ -1,0 +1,543 @@
+<Demo>:
+    MDScreen:
+        name:"loginscreen"
+        md_bg_color: app.theme_cls.primary_color
+        MDCard:
+            padding:30
+            pos_hint:{"center_x":.5,"center_y":.5}
+            size_hint_y:.73
+            size_hint_x:.6
+            elevation:4
+            shadow_radius: 6
+            shadow_offset:0, 2
+            
+            size: "300dp", "100dp"
+            MDBoxLayout:
+                orientation: 'vertical'
+                spacing:10
+                Image:
+                    source: 'DUET_Logo.png'
+                MDLabel:
+                    text: "DUET Dinning Hall Management System"
+                    theme_text_color: "Custom"
+                    text_color: 255, 110, 71, 0.8
+                    bold:True
+                    font_size:18
+                    halign:"center"
+                MDTextField:
+                    hint_text: "Enter Your ID"
+                    mode: "fill"
+                    id:cid
+                    
+                MDTextField:
+                    hint_text: "Enter Your Password"
+                    mode: "fill"
+                    id:cpas
+                    password:True
+                    font_size:16
+                    password_mask:"*"
+                
+                MDBoxLayout:
+                    orientation: 'horizontal'
+                    spacing:15
+                    padding_x:dp(20)
+                    padding_y:dp(0)
+                    pos_hint:{"center_x":.5,"center_y":.4}
+                    MDRaisedButton:
+                        text: "Log In"
+                        on_press:root.checkUser()
+                    MDRaisedButton:
+                        text: "Register"
+                        on_release:root.current="regscreen"
+                            
+    MDScreen:
+        name:"regscreen"
+        md_bg_color: app.theme_cls.primary_color
+        
+        MDCard:
+            padding:40
+            pos_hint:{"center_x":.5,"center_y":.5}
+            size_hint_y:.85
+            size_hint_x:.6
+            elevation:4
+            shadow_radius: 6
+            shadow_offset:0,2
+            
+            size: "200dp", "100dp"
+            MDBoxLayout:
+                orientation: 'vertical'
+                spacing:20
+                halign:"center"
+                Image:
+                    source: 'DUET_Logo.png'
+                
+                MDTextField:
+                    id:i
+                    hint_text: "Enter Your ID"
+                    mode: "fill"
+                    required:True
+                MDTextField:
+                    id:n
+                    hint_text: "Enter Your Name"
+                    mode: "fill"
+                MDTextField:
+                    id:cn
+                    hint_text: "Enter Your Contact Number"
+                    mode: "fill"
+                MDTextField:
+                    id:pas
+                    hint_text: "Enter Your Password"
+                    mode: "fill"
+                    required:True
+                    password:True
+                    font_size:16
+                    password_mask:"*"
+                MDBoxLayout:
+                    orientation: 'horizontal'
+                    spacing:15
+                    padding_x:dp(20)
+                    padding_y:dp(0)
+                    pos_hint:{"center_x":.5,"center_y":.4}
+                    MDRaisedButton:
+                        text: "Register"
+                        on_press:root.registerUser()
+                    MDRaisedButton:
+                        text: "Log In Now"
+                        on_release:root.current="loginscreen"
+                                          
+    MDScreen:
+        name:"adminpanel"
+        md_bg_color: app.theme_cls.primary_color
+        MDBoxLayout:
+            orientation: 'vertical'
+            spacing:5
+            MDLabel:
+                text: "DUET Dinning Hall Management System"
+                font_size:25
+                size_hint_y:.05
+                halign:"center"
+                theme_text_color:"Custom"
+                text_color:(1,1,1,1)
+                bold:True
+            MDLabel:
+                text: "( Admin Panel)"
+                font_size:18
+                size_hint_y:.05
+                halign:"center"
+                theme_text_color:"Custom"
+                text_color:(1,1,1,0.9)
+                bold:True
+            MDCard:
+                padding:30
+                pos_hint:{"center_x":.5,"center_y":.5}
+                size_hint_y:.6
+                size_hint_x:.8
+                elevation:4
+                shadow_radius: 6
+                shadow_offset:0, 2
+                md_bg_color: (1,1,1,1)
+                MDGridLayout:
+                    md_bg_color: (1,1,1,1)
+                    padding:30
+                    spacing:25
+                    pos_hint:{"center_x":.5,"center_y":.5}
+                    cols: 2 
+                    rows: 3
+                    MDRaisedButton:       
+                        text: 'Add Member'
+                        size_hint_y:.1
+                        size_hint_x:.1
+                        font_size:20
+                        on_release:root.current="addmember"
+                        
+                    MDRaisedButton:
+                        text: 'Member Info'
+                        size_hint_y:.1
+                        size_hint_x:.1
+                        font_size:20
+                        on_release:root.current="minfo"
+                        
+                    MDRaisedButton:
+                        text: 'Notification'
+                        size_hint_y:.1
+                        size_hint_x:.1
+                        font_size:20
+                        on_release:root.current="notification"
+                        
+                    MDRaisedButton:       
+                        text: 'Select Meal'
+                        size_hint_y:.1
+                        size_hint_x:.1
+                        font_size:20
+                        on_release:root.current="vfood"
+                        
+                    MDRaisedButton:
+                        text: 'Payment and Expense History'
+                        size_hint_y:.1
+                        size_hint_x:.1
+                        font_size:20
+                        on_release:root.current="ephistory"
+                    MDRaisedButton:
+                        text: 'Purchase Coupon'
+                        size_hint_y:.1
+                        size_hint_x:.1
+                        font_size:20
+                        on_release:root.current="pcoupon"
+                  
+    MDScreen:
+        name:"minfo"
+        md_bg_color: app.theme_cls.primary_color 
+        MDRaisedButton:       
+            text: 'go to panel'
+            halign:"center"
+            size_hint_y:.3
+            size_hint_x:.35
+            font_size:20
+            on_release:root.current="adminpanel"
+
+    MDScreen:
+        name:"addmember"
+        md_bg_color: app.theme_cls.primary_color
+        
+        MDCard:
+            padding:40
+            pos_hint:{"center_x":.5,"center_y":.5}
+            size_hint_y:.85
+            size_hint_x:.6
+            elevation:4
+            shadow_radius: 6
+            shadow_offset:0,2
+            
+            size: "200dp", "100dp"
+            MDBoxLayout:
+                orientation: 'vertical'
+                spacing:20
+                halign:"center"
+                Image:
+                    source: 'DUET_Logo.png'
+                
+                MDTextField:
+                    id:mi
+                    hint_text: "Enter Student ID"
+                    mode: "fill"
+                    required:True
+                MDTextField:
+                    id:mn
+                    hint_text: "Enter Student Name"
+                    mode: "fill"
+                MDTextField:
+                    id:mcn
+                    hint_text: "Enter Student's Contact Number"
+                    mode: "fill"
+                
+                MDBoxLayout:
+                    orientation: 'horizontal'
+                    spacing:15
+                    padding_x:dp(20)
+                    padding_y:dp(0)
+                    pos_hint:{"center_x":.5,"center_y":.4}
+                    MDRaisedButton:
+                        text: "Add Member"
+                        on_press:root.addmem()
+                    MDRaisedButton:
+                        text: "Go To Admin Panel"
+                        on_release:root.current="adminpanel"
+             
+    MDScreen:
+        name:"notification"
+        md_bg_color: app.theme_cls.primary_color 
+        MDRaisedButton:       
+            text: 'go to panel'
+            halign:"center"
+            size_hint_y:.3
+            size_hint_x:.35
+            font_size:20
+            on_release:root.current="adminpanel"
+
+    MDScreen:
+        name:"ephistory"
+        md_bg_color: app.theme_cls.primary_color 
+        MDRaisedButton:       
+            text: 'go to panel'
+            halign:"center"
+            size_hint_y:.3
+            size_hint_x:.35
+            font_size:20
+            on_release:root.current="adminpanel"
+
+    MDScreen:
+        name:"pcoupon"
+        MDBoxLayout:
+            orientation:"vertical"
+            spacing:10
+
+            MDLabel:
+                text: "Buy coupon"
+                theme_text_color: "Custom"
+                text_color: 0,0,0,1
+                bold:True
+                font_size:20
+                pos_hint:{"center_x":.5,"center_y":.5}
+                halign:"center"
+                size_hint_y:.2
+
+            MDBoxLayout:
+                orientation: "horizontal"
+                size_hint_x: .7
+                size_hint_y:.8
+                pos_hint:{"center_x":.5,"center_y":.5}
+                MDBoxLayout:
+                    orientation:"vertical"
+                    
+                    spacing: 10
+                    MDTextField:
+                        id: Sid
+                        hint_text: "Enter Student ID"
+                        mode:"fill"
+                        size_hint: 0.9, None
+                        pos_hint: {"center_x":.5}
+                    MDTextField:
+                        id:SD
+                        hint_text: "Starting Date"
+                        mode:"fill"
+                        size_hint: 0.9, None
+                        pos_hint: {"center_x":.5}
+                        
+                    MDTextField: 
+                        id:ED
+                        hint_text: "Ending Date"
+                        mode: "fill"
+                        size_hint: 0.9, None
+                        pos_hint: {"center_x":.5}
+                        
+                    MDTextField: 
+                        id: Amount
+                        hint_text: "Enter Amount"
+                        mode: "fill"
+                        size_hint: 0.9, None
+                        pos_hint: {"center_x":.5}
+                    MDTextField: 
+                        id: pdatehis
+                        hint_text: "Payment Date"
+                        mode: "fill"
+                        size_hint: 0.9, None
+                        pos_hint: {"center_x":.5}
+                        
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+                        spacing: 10
+                        padding_x:dp(30)
+                        padding_y:dp(20)
+                        size_hint: 0.7, 0.3
+                        pos_hint:{"center_x":.5,"center_y":.5}
+                        MDRaisedButton:
+                            text: "Submit"
+                            size_hint: 0.1,0.3
+                            pos_hint:{"center_x":.5,"center_y":.5}
+                            on_press:root.purcoupon()
+                        MDRaisedButton:
+                            text: "Go To Admin Panel"
+                            size_hint: 0.1,0.3
+                            pos_hint:{"center_x":.5,"center_y":.5}
+                            on_press:root.current="adminpanel"
+               
+    MDScreen:
+        name:"vfood"
+        md_bg_color: app.theme_cls.primary_color
+        MDBoxLayout:
+            orientation:"vertical"
+            spacing:10
+            MDLabel:
+                text: "Select Menu"
+                theme_text_color: "Custom"
+                text_color: 1,1,1,1
+                bold:True
+                font_size:20
+                pos_hint:{"center_x":.5,"center_y":.5}
+                halign:"center"
+                size_hint_y:.1
+            MDGridLayout:
+                cols:3
+                rows:1
+                padding:50
+                spacing:10
+                size_hint_y:.7
+                md_bg_color:(1,1,1,1)
+                MDCard:
+                    padding:30
+                    pos_hint:{"center_x":.5,"center_y":.5}
+                    size_hint_y:.5
+                    size_hint_x:.5
+                    md_bg_color: (1,1,1,1)
+                    elevation:4
+                    shadow_radius: 6
+                    shadow_offset:0, 2
+                    MDBoxLayout:
+                        orientation: 'vertical'
+                        spacing:10
+                        MDLabel:
+                            text: "Breakfast"
+                            theme_text_color: "Custom"
+                            text_color: 0,0,0,1
+                            bold:True
+                            font_size:18
+                            halign:"center"
+                            size_hint_y:0.1
+                        MDGridLayout:
+                            cols:2
+                            rows:5
+                            MDLabel:
+                                text: "ABCD"
+                                font_size:25
+                            MDCheckbox:
+                                size_hint: None, None
+                                size: "50dp", "50dp"
+                                
+                            MDLabel:
+                                text: "abcd"
+                                font_size:25
+                            MDCheckbox:
+                                size_hint: None, None
+                                size: "50dp", "50dp"
+                            MDLabel:
+                                text: "abcd"
+                                font_size:25
+                            MDCheckbox:
+                                size_hint: None, None
+                                size: "50dp", "50dp"
+                            MDLabel:
+                                text: "abcd"
+                                font_size:25
+                            MDCheckbox:
+                                size_hint: None, None
+                                size: "50dp", "50dp"  
+                            MDLabel:
+                                text: "abcd"
+                                font_size:25
+                            MDCheckbox:
+                                size_hint: None, None
+                                size: "50dp", "50dp"       
+
+                MDCard:
+                    padding:30
+                    pos_hint:{"center_x":.5,"center_y":.5}
+                    size_hint_y:.5
+                    size_hint_x:.5
+                    md_bg_color: (1,1,1,1)
+                    elevation:4
+                    shadow_radius: 6
+                    shadow_offset:0, 2
+                    MDBoxLayout:
+                        orientation: 'vertical'
+                        spacing:10
+                        MDLabel:
+                            text: "Lunch"
+                            theme_text_color: "Custom"
+                            text_color: 0,0,0,1
+                            bold:True
+                            font_size:18
+                            halign:"center"
+                            size_hint_y:0.1
+                        MDGridLayout:
+                            cols:2
+                            rows:5
+                            MDLabel:
+                                text: "ABCD"
+                                font_size:25
+                            MDCheckbox:
+                                size_hint: None, None
+                                size: "50dp", "50dp"
+                                
+                            MDLabel:
+                                text: "abcd"
+                                font_size:25
+                            MDCheckbox:
+                                size_hint: None, None
+                                size: "50dp", "50dp"
+                            MDLabel:
+                                text: "abcd"
+                                font_size:25
+                            MDCheckbox:
+                                size_hint: None, None
+                                size: "50dp", "50dp"
+                            MDLabel:
+                                text: "abcd"
+                                font_size:25
+                            MDCheckbox:
+                                size_hint: None, None
+                                size: "50dp", "50dp"  
+                            MDLabel:
+                                text: "abcd"
+                                font_size:25
+                            MDCheckbox:
+                                size_hint: None, None
+                                size: "50dp", "50dp"       
+
+
+                MDCard:
+                    padding:30
+                    pos_hint:{"center_x":.5,"center_y":.5}
+                    size_hint_y:.5
+                    size_hint_x:.5
+                    md_bg_color: (1,1,1,1)
+                    elevation:4
+                    shadow_radius: 6
+                    shadow_offset:0, 2
+                    MDBoxLayout:
+                        orientation: 'vertical'
+                        spacing:10
+                        MDLabel:
+                            text: "Dinner"
+                            theme_text_color: "Custom"
+                            text_color: 0,0,0,1
+                            bold:True
+                            font_size:18
+                            halign:"center"
+                            size_hint_y:0.1
+                        MDGridLayout:
+                            cols:2
+                            rows:5
+                            MDLabel:
+                                text: "ABCD"
+                                font_size:25
+                            MDCheckbox:
+                                size_hint: None, None
+                                size: "50dp", "50dp"
+                                
+                            MDLabel:
+                                text: "abcd"
+                                font_size:25
+                            MDCheckbox:
+                                size_hint: None, None
+                                size: "50dp", "50dp"
+                            MDLabel:
+                                text: "abcd"
+                                font_size:25
+                            MDCheckbox:
+                                size_hint: None, None
+                                size: "50dp", "50dp"
+                            MDLabel:
+                                text: "abcd"
+                                font_size:25
+                            MDCheckbox:
+                                size_hint: None, None
+                                size: "50dp", "50dp"  
+                            MDLabel:
+                                text: "abcd"
+                                font_size:25
+                            MDCheckbox:
+                                size_hint: None, None
+                                size: "50dp", "50dp"
+            MDBoxLayout:
+                size_hint:.2,.1
+                pos_hint:{"center_x":.5,"center_y":.5}
+                MDRaisedButton:
+                    text: "Submit"
+                    size_hint:.4,.5
+                    halign:"center"
+                    md_bg_color: (1,1,1,1)
+                    theme_text_color: "Custom"
+                    text_color: 0,0,0,1
+                    pos_hint:{"center_x":.5,"center_y":.5}
+                    on_release:root.current="adminpanel"
+               

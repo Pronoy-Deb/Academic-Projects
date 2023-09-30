@@ -1,0 +1,232 @@
+WindowManager:
+    FirstWindow:
+    SecondWindow:
+    ThirdWindow:
+    FourthWindow:
+<FirstWindow>:
+    name: "First" 
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+        Label:
+            text: "INVENTORY MANAGEMENT SYSTEM!!!"
+            font_size: 30
+        Image:
+            source: "inventory.jpg"
+        Label:
+            text: ""
+            font_size: 5
+        Button:
+            text: "Sign in"
+            font_size: 30
+            size_hint: 0.3, 0.3
+            background_color: 0, 0, 1, 1
+            pos_hint: {"x":0.35, "top":1}
+            on_release: 
+                app.root.current= "Second"
+                root.manager.transition.direction= "left"
+        Button:
+            text: "Sign up"
+            font_size: 30
+            size_hint: 0.3, 0.3
+            background_color: 0, 0, 1, 1
+            pos_hint: {"x":0.35, "top":1}
+            on_release: 
+                app.root.current= "Third"
+                root.manager.transition.direction= "left"
+<SecondWindow>:
+    name: "Second"
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+        
+        Label:
+            text: "Username"
+            font_size: 30
+        TextInput:
+            multiline: False
+            padding_y: (5,5)
+            size_hint: (1, 0.4)
+        Label:
+            text: "Password"
+            font_size: 30
+        TextInput:
+            multiline: False
+            padding_y: (5,5)
+            size_hint: (1, 0.4)
+        Button:
+
+            text: "Login"
+            font_size: 30
+            size_hint: 0.3, 0.3
+            background_color: 0, 0, 1, 1
+            pos_hint: {"x":0.35, "top":1}
+            on_release: 
+                app.root.current= "Fourth"
+                root.manager.transition.direction= "left"
+        Button:
+            text: "Previous"
+            font_size: 30
+            size_hint: 0.3, 0.3
+            background_color: 0, 0, 1, 1
+            pos_hint: {"x":0.35, "top":1}
+            on_release: 
+                app.root.current= "First"
+                root.manager.transition.direction= "right"
+<ThirdWindow>:
+    name: "Third"
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+        Label:
+            text: "First Name"
+            font_size: 30
+        TextInput:
+            multiline: False
+            padding_y: (5,5)
+            size_hint: (1, 0.4)
+        Label:
+            text: "Last Name"
+            font_size: 30
+        TextInput:
+            multiline: False
+            padding_y: (5,5)
+            size_hint: (1, 0.4)
+        Label:
+            text: "E-mail"
+            font_size: 30
+        TextInput:
+            multiline: False
+            padding_y: (5,5)
+            size_hint: (1, 0.4)
+        Label:
+            text: "Password"
+            font_size: 30
+        TextInput:
+            multiline: False
+            padding_y: (5,5)
+            size_hint: (1, 0.4)
+        Label:
+            text: "Re-enter Password"
+            font_size: 30
+        TextInput:
+            multiline: False
+            padding_y: (5,5)
+            size_hint: (1, 0.4)
+        Button:
+            text: "Submit"
+            font_size: 30
+            size_hint: 0.3, 0.3
+            background_color: 0, 0, 1, 1
+            pos_hint: {"x":0.35, "top":1}
+            on_release: 
+                app.root.current= "Fourth"
+                root.manager.transition.direction="left"
+        Button:
+            text: "Previous"
+            font_size: 30
+            size_hint: 0.3, 0.3
+            background_color: 0, 0, 1, 1
+            pos_hint: {"x":0.35, "top":1}
+            on_release: 
+                app.root.current= "First"
+                root.manager.transition.direction="right"
+<FourthWindow>:
+    name: "Fourth"
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+        Label:
+            text: "Welcome to the system!!!"
+            font_size: 32
+
+        
+
+        Button:
+            text: "Previous"
+            font_size: 32
+            size_hint: 0.3, 0.3
+            background_color: 0, 0, 1, 1
+            pos_hint: {"x":0.35, "top":1}
+            on_release:
+                app.root.current= "First"
+                root.manager.transition.direction="right"
+# <FifthWindow>:
+#     name: "Fifth"
+#     BoxLayout:
+#         orientation: "vertical"
+#         size: root.width, root.height
+#             Button:
+#             text: "Previous"
+#             font_size: 32
+#             on_release:
+#                 app.root.current= "Fourth"
+#                 root.manager.transition.direction="right"
+#         Button:
+#             text:"Next"
+#             font_size: 32
+#             on_release:
+#                 app.root.current= "Sixth"
+#                 root.manager.transition.direction="Left"
+# <SixthWindow>:
+#     name: "Sixth"
+#     BoxLayout:
+#         orientation: "vertical"
+#         size: root.width, root.height
+#             Button:
+#             text:"Previous"
+#             font_size: 32
+#             on_release:
+#                 app.root.current= "Fifth"
+#                 root.manager.transition.direction="right"
+#         Button:
+#             text:"Next"
+#             font_size: 32
+#             on_release:
+#                 app.root.current= "Seventh"
+#                 root.manager.transition.direction="Left"
+# <SeventhWindow>:
+#     name: "Seventh"
+#     BoxLayout:
+#         orientation: "vertical"
+#         size: root.width, root.height
+#             Button:
+#             text:"Previous"
+#             font_size: 32
+#             on_release:
+#                 app.root.current= "Sixth"
+#                 root.manager.transition.direction="right"
+#         Button:
+#             text:"Next"
+#             font_size: 32
+#             on_release:
+#                 app.root.current= "Eighth"
+#                 root.manager.transition.direction="Left"
+# <EighthWindow>:
+#     name: "Eighth"
+#     BoxLayout:
+#         orientation: "vertical"
+#         size: root.width, root.height
+#         Button:
+#             text:"Previous"
+#             font_size: 32
+#             on_release:
+#                 app.root.current= "Seventh"
+#                 root.manager.transition.direction="right"
+#         Button:
+#             text:"Next"
+#             font_size: 32
+#             on_release:
+#                 app.root.current= "Ninth"
+#                 root.manager.transition.direction="Left"
+# <NinthWindow>:
+#     name: "Ninth"
+#     BoxLayout:
+#         orientation: "vertical"
+#         size: root.width, root.height
+#         Button:
+#             text:"Previous"
+#             font_size: 32
+#             on_release:
+#                 app.root.current= "Eighth"
+#                 root.manager.transition.direction="right"

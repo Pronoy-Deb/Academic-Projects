@@ -1,0 +1,80 @@
+[
+    {
+        "username": "pro",
+        "email": "dsf",
+        "password": "20"
+    },
+    {
+        "username": "lor",
+        "email": "df",
+        "password": "10"
+    },
+    {
+        "username": "fdf",
+        "email": "sf",
+        "password": "4"
+    },
+    {
+        "username": "",
+        "email": "",
+        "password": ""
+    },
+    {
+        "username": "",
+        "email": "",
+        "password": ""
+    },
+    {
+        "username": "",
+        "email": "",
+        "password": ""
+    },
+    {
+        "username": "",
+        "email": "",
+        "password": ""
+    },
+    {
+        "username": "",
+        "email": "",
+        "password": ""
+    },
+    {
+        "id": "",
+        "name": "",
+        "catagory": "",
+        "quantity": "",
+        "totalprice": ""
+    },
+    {
+        "id": "",
+        "name": "",
+        "catagory": "",
+        "quantity": "",
+        "totalprice": ""
+    },
+    {
+        "username": "",
+        "email": "",
+        "password": ""
+    },
+    {
+        "username": "",
+        "email": "",
+        "password": ""
+    },
+    {
+        "id": "",
+        "name": "",
+        "type": "",
+        "quantity": "",
+        "price": ""
+    },
+    {
+        "id": "",
+        "name": "",
+        "catagory": "",
+        "quantity": "",
+        "totalprice": ""
+    }
+]

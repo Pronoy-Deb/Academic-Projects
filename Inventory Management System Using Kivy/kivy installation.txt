@@ -1,0 +1,11 @@
+(base) C:\Users\Abu Bakkar Siddique>conda create -n acp
+(base) C:\Users\Abu Bakkar Siddique>conda activate acp
+check whether venviroment create....
+(acp) C:\Users\Abu Bakkar Siddique>conda install python=3.10
+(acp) C:\Users\Abu Bakkar Siddique>conda deactivate
+(acp) C:\Users\Abu Bakkar Siddique>conda activate acp
+(acp) C:\Users\Abu Bakkar Siddique>conda install kivy -c conda-forge
+
+
+(abs) C:\Users\Abu Bakkar Siddique>pip install "kivy[sdl2]" 
+https://kivy.org/doc/stable/gettingstarted/installation.html#kivy-source-install    
