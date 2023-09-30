@@ -1,0 +1,953 @@
+<show>:
+    MDScreen:
+        name:"home"
+        md_bg_color: [0, 128, 0, 0.5]
+        MDCard:
+            padding:30
+            pos_hint:{"center_x":.5,"center_y":.5}
+            size_hint_y:.73
+            size_hint_x:.6
+            elevation:4
+            shadow_radius: 6
+            shadow_offset:0, 2
+            
+            size: "300dp", "100dp"
+            MDBoxLayout:
+                orientation: 'vertical'
+                spacing:10
+                Image:
+                    source: '3.jpg'
+                MDLabel:
+                    text: "Inventory Management System"
+                    theme_text_color: "Custom"
+                    text_color: 255, 110, 71, 0.8
+                    bold:True
+                    font_size:40
+                    halign:"center"
+                MDTextField:
+                    hint_text: "Username"
+                    mode: "fill"
+                    id:ckname
+                    
+                MDTextField:
+                    hint_text: "Password"
+                    mode: "fill"
+                    id:ckpas
+                    password:True
+                    password_mask:"*"
+                MDBoxLayout:
+                    orientation: 'horizontal'
+                    spacing: 10
+                    padding_x:dp(30)
+                    padding_y:dp(20)
+                    size_hint: 0.7, 0.3
+                    pos_hint:{"center_x":.5,"center_y":.5}
+                    MDRaisedButton:
+                        text: "Sign in"
+                        font_size:18
+                        size_hint: 1.2,1.2
+                        pos_hint:{"center_x":.5,"center_y":.5}
+                        on_press:root.checkUser()
+                    MDRaisedButton:
+                        text: "Sign up"
+                        font_size:18
+                        size_hint: 1.2,1.2
+                        pos_hint:{"center_x":.5,"center_y":.5}
+                        on_release:root.current="signup"
+
+                    
+    MDScreen:
+        name:"signup"
+        md_bg_color: [0, 128, 0, 0.5]
+        
+        MDCard:
+            padding:40
+            pos_hint:{"center_x":.5,"center_y":.5}
+            size_hint_y:.85
+            size_hint_x:.6
+            elevation:4
+            shadow_radius: 6
+            shadow_offset:0,2
+            
+            size: "200dp", "100dp"
+            MDBoxLayout:
+                orientation: 'vertical'
+                spacing:20
+                halign:"center"
+                Image:
+                    source: '3.jpg'
+                MDLabel:
+                    text: "Sign Up"
+                    theme_text_color: "Custom"
+                    text_color: 255, 110, 71, 0.8
+                    bold:True
+                    font_size:40
+                    halign:"center"
+                MDTextField:
+                    id:name
+                    hint_text: "Username"
+                    mode: "fill"
+                    required:True
+                MDTextField:
+                    id:mail
+                    hint_text: "E-mail"
+                    mode: "fill"
+                    required:True
+                MDTextField:
+                    id:pas
+                    hint_text: "Password"
+                    mode: "fill"
+                    required:True
+                    password:True
+                    password_mask:"*"
+                MDBoxLayout:
+                    orientation: 'horizontal'
+                    spacing:15
+                    padding_x:dp(20)
+                    padding_y:dp(0)
+                    pos_hint:{"center_x":.5,"center_y":.4}
+                    MDRaisedButton:
+                        text: "Submit"
+                        font_size:20
+                        size_hint: 0.8,0.8
+                        pos_hint:{"center_x":.5,"center_y":.5}
+                        on_press:root.signup()
+                MDRaisedButton:
+                    text: 'Previous'
+                    size_hint_y:.1
+                    size_hint_x:.3
+                    font_size:20
+                    on_release:root.current="home"
+                        
+    MDScreen:
+        name:"first"
+        md_bg_color: [0, 128, 0, 0.5]
+        MDBoxLayout:
+            orientation: 'vertical'
+            spacing:5
+            MDLabel:
+                text: "Manage Accessories"
+                font_size:40
+                size_hint_y:.05
+                halign:"center"
+                theme_text_color:"Custom"
+                text_color:(1,1,1,1)
+                bold:True
+            MDCard:
+                padding:30
+                pos_hint:{"center_x":.5,"center_y":.5}
+                size_hint_y:.8
+                size_hint_x:.9
+                elevation:4
+                shadow_radius: 6
+                shadow_offset:0, 2
+                md_bg_color: (1,1,1,1)
+                MDGridLayout:
+                    md_bg_color: [0, 128, 0, 0.5]
+                    padding:30
+                    spacing:25
+                    pos_hint:{"center_x":.5,"center_y":.5}
+                    cols: 2 
+                    rows: 3
+                    MDRaisedButton:       
+                        text: 'Goods'
+                        size_hint_y:.3
+                        size_hint_x:.3
+                        font_size:40
+                        on_release:root.current="goods"
+
+                    MDRaisedButton:       
+                        text: 'Order'
+                        size_hint_y:.3
+                        size_hint_x:.3
+                        font_size:40
+                        on_release:root.current="order"
+                        
+                    MDRaisedButton:
+                        text: 'Supplier'
+                        size_hint_y:.3
+                        size_hint_x:.35
+                        font_size:40
+                        on_release:root.current="supplier"
+                        
+                    MDRaisedButton:
+                        text: 'Customer'
+                        size_hint_y:.3
+                        size_hint_x:.35
+                        font_size:40
+                        on_release:root.current="customer"
+                        
+                    MDRaisedButton:       
+                        text: 'Purchase'
+                        size_hint_y:.3
+                        size_hint_x:.35
+                        font_size:40
+                        on_release:root.current="purchase"
+                        
+                    MDRaisedButton:
+                        text: 'Sale'
+                        size_hint_y:.3
+                        size_hint_x:.35
+                        font_size:40
+                        on_release:root.current="sale"
+                    
+                    MDRaisedButton:
+                        text: 'Previous'
+                        size_hint_y:.01
+                        size_hint_x:.035
+                        font_size:20
+                        on_release:root.current="home"
+        
+    MDScreen:
+        name:"goods"
+        md_bg_color: [0, 128, 0, 0.5]
+        MDBoxLayout:
+            orientation:"vertical"
+            spacing:10
+            MDLabel:
+                text: "Goods Details"
+                theme_text_color: "Custom"
+                text_color: 1,1,1,1
+                bold:True
+                font_size:40
+                pos_hint:{"center_x":.5,"center_y":.5}
+                halign:"center"
+                size_hint_y:.1
+            MDCard:
+                padding:30
+                pos_hint:{"center_x":.5,"center_y":.5}
+                size_hint_y:.8
+                size_hint_x:.9
+                elevation:4
+                shadow_radius: 6
+                shadow_offset:0, 2
+                md_bg_color: (1,1,1,1)
+                MDGridLayout:
+                    cols:2
+                    rows:1
+                    padding:50
+                    spacing:10
+                    size_hint_y:.8
+                    md_bg_color: [0, 128, 0, 0.5]
+                    MDRaisedButton:       
+                        text: 'Add Goods'
+                        size_hint_y:.3
+                        size_hint_x:.3
+                        font_size:40
+                        on_release:root.current="add1"
+
+                    MDRaisedButton:       
+                        text: 'Available Goods'
+                        size_hint_y:.3
+                        size_hint_x:.3
+                        font_size:40
+                        # on_press:root.tab()
+                        on_release:root.current="info"
+                    MDRaisedButton:       
+                        text: 'Previous'
+                        size_hint_y:.01
+                        size_hint_x:.035
+                        font_size:20
+                        on_release:root.current="first"
+
+    MDScreen:
+        name:"add1"
+        md_bg_color: [0, 128, 0, 0.5]
+        MDBoxLayout:
+            orientation:"vertical"
+            spacing:10
+            MDLabel:
+                text: "Add Goods"
+                theme_text_color: "Custom"
+                text_color: 255, 110, 71, 0.8
+                bold:True
+                font_size:40
+                pos_hint:{"center_x":.5,"center_y":.5}
+                halign:"center"
+                size_hint_y:.2
+
+            MDBoxLayout:
+                orientation: "horizontal"
+                size_hint_x: .7
+                size_hint_y:.8
+                pos_hint:{"center_x":.5,"center_y":.5}
+                MDBoxLayout:
+                    orientation:"vertical"
+                    
+                    spacing: 10
+                    MDTextField:
+                        id: id
+                        hint_text: "ID"
+                        mode:"fill"
+                        size_hint: 0.9, None
+                        pos_hint: {"center_x":.5}
+                    MDTextField:
+                        id:nam
+                        hint_text: "Name"
+                        mode:"fill"
+                        size_hint: 0.9, None
+                        pos_hint: {"center_x":.5}
+                        
+                    MDTextField: 
+                        id:cat
+                        hint_text: "Catagory"
+                        mode: "fill"
+                        size_hint: 0.9, None
+                        pos_hint: {"center_x":.5}
+                        
+                    MDTextField: 
+                        id: quan
+                        hint_text: "Quantity"
+                        mode: "fill"
+                        size_hint: 0.9, None
+                        pos_hint: {"center_x":.5}
+                    MDTextField: 
+                        id: totprice
+                        hint_text: "Total Price"
+                        mode: "fill"
+                        size_hint: 0.9, None
+                        pos_hint: {"center_x":.5}
+                        
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+                        spacing: 10
+                        padding_x:dp(30)
+                        padding_y:dp(20)
+                        size_hint: 0.7, 0.3
+                        pos_hint:{"center_x":.5,"center_y":.5}
+                        MDRaisedButton:       
+                            text: 'Previous'
+                            font_size:20
+                            size_hint_y:.2
+                            size_hint_x:.4
+                            pos_hint:{"center_x":.1,"center_y":.1}
+                            on_release:root.current="goods"
+                        MDRaisedButton:
+                            text: "Add"
+                            font_size:20
+                            size_hint: 0.1,0.3
+                            pos_hint:{"center_x":.5,"center_y":.5}
+                            on_press:root.add1()
+
+
+    MDScreen:
+        name:"order"
+        md_bg_color: [0, 128, 0, 0.5]
+        MDBoxLayout:
+            orientation:"vertical"
+            spacing:10
+            MDLabel:
+                text: "Manage Orders"
+                theme_text_color: "Custom"
+                text_color: 1,1,1,1
+                bold:True
+                font_size:40
+                pos_hint:{"center_x":.5,"center_y":.5}
+                halign:"center"
+                size_hint_y:.1
+            MDCard:
+                padding:30
+                pos_hint:{"center_x":.5,"center_y":.5}
+                size_hint_y:.8
+                size_hint_x:.9
+                elevation:4
+                shadow_radius: 6
+                shadow_offset:0, 2
+                md_bg_color: (1,1,1,1)
+                MDGridLayout:
+                    cols:2
+                    rows:1
+                    padding:50
+                    spacing:10
+                    size_hint_y:.8
+                    md_bg_color: [0, 128, 0, 0.5]
+                    MDRaisedButton:       
+                        text: 'Place An Order'
+                        size_hint_y:.3
+                        size_hint_x:.3
+                        font_size:40
+                        on_release:root.current="add2"
+
+                    MDRaisedButton:       
+                        text: 'Orders History'
+                        size_hint_y:.3
+                        size_hint_x:.3
+                        font_size:40
+                        on_release:root.current="info"
+                    MDRaisedButton:       
+                        text: 'Previous'
+                        size_hint_y:.01
+                        size_hint_x:.035
+                        font_size:20
+                        on_release:root.current="first"
+
+    MDScreen:
+        name:"add2"
+        md_bg_color: [0, 128, 0, 0.5]
+        MDBoxLayout:
+            orientation:"vertical"
+            spacing:10
+            MDLabel:
+                text: "Place Order"
+                theme_text_color: "Custom"
+                text_color: 255, 110, 71, 0.8
+                bold:True
+                font_size:40
+                pos_hint:{"center_x":.5,"center_y":.5}
+                halign:"center"
+                size_hint_y:.2
+            MDBoxLayout:
+                orientation: "horizontal"
+                size_hint_x: .7
+                size_hint_y:.8
+                pos_hint:{"center_x":.5,"center_y":.5}
+                MDBoxLayout:
+                    orientation:"vertical"
+                    spacing: 10
+                    MDTextField:
+                        id: oid
+                        hint_text: "ID"
+                        mode:"fill"
+                        size_hint: 0.9, None
+                        pos_hint: {"center_x":.5}
+                    MDTextField:
+                        id:onam
+                        hint_text: "Name"
+                        mode:"fill"
+                        size_hint: 0.9, None
+                        pos_hint: {"center_x":.5}
+                    MDTextField: 
+                        id:ocat
+                        hint_text: "Catagory"
+                        mode: "fill"
+                        size_hint: 0.9, None
+                        pos_hint: {"center_x":.5}
+                    MDTextField: 
+                        id: oquan
+                        hint_text: "Quantity"
+                        mode: "fill"
+                        size_hint: 0.9, None
+                        pos_hint: {"center_x":.5}
+                    MDTextField: 
+                        id: ototprice
+                        hint_text: "Total Price"
+                        mode: "fill"
+                        size_hint: 0.9, None
+                        pos_hint: {"center_x":.5}
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+                        spacing: 10
+                        padding_x:dp(30)
+                        padding_y:dp(20)
+                        size_hint: 0.7, 0.3
+                        pos_hint:{"center_x":.5,"center_y":.5}
+                        MDRaisedButton:       
+                            text: 'Previous'
+                            font_size:20
+                            size_hint_y:.2
+                            size_hint_x:.4
+                            pos_hint:{"center_x":.1,"center_y":.1}
+                            on_release:root.current="order"
+                        MDRaisedButton:
+                            text: "Place"
+                            font_size:20
+                            size_hint: 0.1,0.3
+                            pos_hint:{"center_x":.5,"center_y":.5}
+                            on_press:root.add2()
+    MDScreen:
+        name:"supplier"
+        md_bg_color: [0, 128, 0, 0.5]
+        MDBoxLayout:
+            orientation:"vertical"
+            spacing:10
+            MDLabel:
+                text: "Manage Suppliers"
+                theme_text_color: "Custom"
+                text_color: 1,1,1,1
+                bold:True
+                font_size:40
+                pos_hint:{"center_x":.5,"center_y":.5}
+                halign:"center"
+                size_hint_y:.1
+            MDCard:
+                padding:30
+                pos_hint:{"center_x":.5,"center_y":.5}
+                size_hint_y:.8
+                size_hint_x:.9
+                elevation:4
+                shadow_radius: 6
+                shadow_offset:0, 2
+                md_bg_color: (1,1,1,1)
+                MDGridLayout:
+                    cols:2
+                    rows:1
+                    padding:50
+                    spacing:10
+                    size_hint_y:.8
+                    md_bg_color: [0, 128, 0, 0.5]
+                    MDRaisedButton:       
+                        text: 'Add A Supplier'
+                        size_hint_y:.3
+                        size_hint_x:.3
+                        font_size:40
+                        on_release:root.current="add3"
+                    MDRaisedButton:       
+                        text: 'See Suppliers'
+                        size_hint_y:.3
+                        size_hint_x:.3
+                        font_size:40
+                        on_release:root.current="info"
+                    MDRaisedButton:       
+                        text: 'Previous'
+                        size_hint_y:.01
+                        size_hint_x:.035
+                        font_size:20
+                        on_release:root.current="first"
+
+    MDScreen:
+        name:"add3"
+        md_bg_color: [0, 128, 0, 0.5]
+        MDBoxLayout:
+            orientation:"vertical"
+            spacing:10
+            MDLabel:
+                text: "Add Supplier"
+                theme_text_color: "Custom"
+                text_color: 255, 110, 71, 0.8
+                bold:True
+                font_size:40
+                pos_hint:{"center_x":.5,"center_y":.5}
+                halign:"center"
+                size_hint_y:.2
+            MDBoxLayout:
+                orientation: "horizontal"
+                size_hint_x: .7
+                size_hint_y:.8
+                pos_hint:{"center_x":.5,"center_y":.5}
+                MDBoxLayout:
+                    orientation:"vertical"
+                    spacing: 10
+                    MDTextField:
+                        id: sid
+                        hint_text: "ID"
+                        mode:"fill"
+                        size_hint: 0.9, None
+                        pos_hint: {"center_x":.5}
+                    MDTextField:
+                        id:snam
+                        hint_text: "Name"
+                        mode:"fill"
+                        size_hint: 0.9, None
+                        pos_hint: {"center_x":.5}
+                    MDTextField: 
+                        id: sadd
+                        hint_text: "Address"
+                        mode: "fill"
+                        size_hint: 0.9, None
+                        pos_hint: {"center_x":.5}
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+                        spacing: 10
+                        padding_x:dp(30)
+                        padding_y:dp(20)
+                        size_hint: 0.7, 0.3
+                        pos_hint:{"center_x":.5,"center_y":.5}
+                        MDRaisedButton:       
+                            text: 'Previous'
+                            font_size:20
+                            size_hint_y:.2
+                            size_hint_x:.4
+                            pos_hint:{"center_x":.1,"center_y":.1}
+                            on_release:root.current="supplier"
+                        MDRaisedButton:
+                            text: "Add"
+                            font_size:20
+                            size_hint: 0.1,0.3
+                            pos_hint:{"center_x":.5,"center_y":.5}
+                            on_press:root.add3()
+    MDScreen:
+        name:"customer"
+        md_bg_color: [0, 128, 0, 0.5]
+        MDBoxLayout:
+            orientation:"vertical"
+            spacing:10
+            MDLabel:
+                text: "Manage Customers"
+                theme_text_color: "Custom"
+                text_color: 1,1,1,1
+                bold:True
+                font_size:40
+                pos_hint:{"center_x":.5,"center_y":.5}
+                halign:"center"
+                size_hint_y:.1
+            MDCard:
+                padding:30
+                pos_hint:{"center_x":.5,"center_y":.5}
+                size_hint_y:.8
+                size_hint_x:.9
+                elevation:4
+                shadow_radius: 6
+                shadow_offset:0, 2
+                md_bg_color:(1,1,1,1)
+                MDGridLayout:
+                    cols:2
+                    rows:1
+                    padding:50
+                    spacing:10
+                    size_hint_y:.8
+                    md_bg_color: [0, 128, 0, 0.5]
+                    MDRaisedButton:       
+                        text: 'Add A Customer'
+                        size_hint_y:.3
+                        size_hint_x:.3
+                        font_size:40
+                        on_release:root.current="add4"
+                    MDRaisedButton:       
+                        text: 'See Customers'
+                        size_hint_y:.3
+                        size_hint_x:.3
+                        font_size:40
+                        on_release:root.current="info"
+                    MDRaisedButton:       
+                        text: 'Previous'
+                        size_hint_y:.01
+                        size_hint_x:.035
+                        font_size:20
+                        on_release:root.current="first"
+
+    MDScreen:
+        name:"add4"
+        md_bg_color: [0, 128, 0, 0.5]
+        MDBoxLayout:
+            orientation:"vertical"
+            spacing:10
+            MDLabel:
+                text: "Add Supplier"
+                theme_text_color: "Custom"
+                text_color: 255, 110, 71, 0.8
+                bold:True
+                font_size:40
+                pos_hint:{"center_x":.5,"center_y":.5}
+                halign:"center"
+                size_hint_y:.2
+            MDBoxLayout:
+                orientation: "horizontal"
+                size_hint_x: .7
+                size_hint_y:.8
+                pos_hint:{"center_x":.5,"center_y":.5}
+                MDBoxLayout:
+                    orientation:"vertical"
+                    spacing: 10
+                    MDTextField:
+                        id: cid
+                        hint_text: "ID"
+                        mode:"fill"
+                        size_hint: 0.9, None
+                        pos_hint: {"center_x":.5}
+                    MDTextField:
+                        id:cnam
+                        hint_text: "Name"
+                        mode:"fill"
+                        size_hint: 0.9, None
+                        pos_hint: {"center_x":.5}
+                    MDTextField: 
+                        id: ccon
+                        hint_text: "Contact"
+                        mode: "fill"
+                        size_hint: 0.9, None
+                        pos_hint: {"center_x":.5}
+                    MDTextField: 
+                        id: cadd
+                        hint_text: "Address"
+                        mode: "fill"
+                        size_hint: 0.9, None
+                        pos_hint: {"center_x":.5}
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+                        spacing: 10
+                        padding_x:dp(30)
+                        padding_y:dp(20)
+                        size_hint: 0.7, 0.3
+                        pos_hint:{"center_x":.5,"center_y":.5}
+                        MDRaisedButton:       
+                            text: 'Previous'
+                            font_size:20
+                            size_hint_y:.2
+                            size_hint_x:.4
+                            pos_hint:{"center_x":.1,"center_y":.1}
+                            on_release:root.current="customer"
+                        MDRaisedButton:
+                            text: "Add"
+                            font_size:20
+                            size_hint: 0.1,0.3
+                            pos_hint:{"center_x":.5,"center_y":.5}
+                            on_press:root.add4()
+
+    MDScreen:
+        name:"purchase"
+        md_bg_color: [0, 128, 0, 0.5]
+        MDBoxLayout:
+            orientation:"vertical"
+            spacing:10
+            MDLabel:
+                text: "Manage Purchases"
+                theme_text_color: "Custom"
+                text_color: 1,1,1,1
+                bold:True
+                font_size:40
+                pos_hint:{"center_x":.5,"center_y":.5}
+                halign:"center"
+                size_hint_y:.1
+            MDCard:
+                padding:30
+                pos_hint:{"center_x":.5,"center_y":.5}
+                size_hint_y:.8
+                size_hint_x:.9
+                elevation:4
+                shadow_radius: 6
+                shadow_offset:0, 2
+                md_bg_color: (1,1,1,1)
+                MDGridLayout:
+                    cols:2
+                    rows:1
+                    padding:50
+                    spacing:10
+                    size_hint_y:.8
+                    md_bg_color: [0, 128, 0, 0.5]
+                    MDRaisedButton:       
+                        text: 'Add A Purchase'
+                        size_hint_y:.3
+                        size_hint_x:.3
+                        font_size:40
+                        on_release:root.current="add5"
+                    MDRaisedButton:       
+                        text: 'Check Purchases'
+                        size_hint_y:.3
+                        size_hint_x:.3
+                        font_size:40
+                        on_release:root.current="info"
+                    MDRaisedButton:       
+                        text: 'Previous'
+                        size_hint_y:.01
+                        size_hint_x:.035
+                        font_size:20
+                        on_release:root.current="first"
+
+    MDScreen:
+        name:"add5"
+        md_bg_color: [0, 128, 0, 0.5]
+        MDBoxLayout:
+            orientation:"vertical"
+            spacing:10
+            MDLabel:
+                text: "Add Purchase"
+                theme_text_color: "Custom"
+                text_color: 255, 110, 71, 0.8
+                bold:True
+                font_size:40
+                pos_hint:{"center_x":.5,"center_y":.5}
+                halign:"center"
+                size_hint_y:.2
+
+            MDBoxLayout:
+                orientation: "horizontal"
+                size_hint_x: .7
+                size_hint_y:.8
+                pos_hint:{"center_x":.5,"center_y":.5}
+                MDBoxLayout:
+                    orientation:"vertical"
+                    spacing: 10
+                    MDTextField:
+                        id: pid
+                        hint_text: "ID"
+                        mode:"fill"
+                        size_hint: 0.9, None
+                        pos_hint: {"center_x":.5}
+                    MDTextField:
+                        id:pnam
+                        hint_text: "Product Name"
+                        mode:"fill"
+                        size_hint: 0.9, None
+                        pos_hint: {"center_x":.5}
+                    MDTextField: 
+                        id: ptype
+                        hint_text: "Product Type"
+                        mode: "fill"
+                        size_hint: 0.9, None
+                        pos_hint: {"center_x":.5}
+                    MDTextField: 
+                        id: pquan
+                        hint_text: "Quantity"
+                        mode: "fill"
+                        size_hint: 0.9, None
+                        pos_hint: {"center_x":.5}
+                    MDTextField: 
+                        id: pprice
+                        hint_text: "Price"
+                        mode: "fill"
+                        size_hint: 0.9, None
+                        pos_hint: {"center_x":.5}
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+                        spacing: 10
+                        padding_x:dp(30)
+                        padding_y:dp(20)
+                        size_hint: 0.7, 0.3
+                        pos_hint:{"center_x":.5,"center_y":.5}
+                        MDRaisedButton:       
+                            text: 'Previous'
+                            font_size:20
+                            size_hint_y:.2
+                            size_hint_x:.4
+                            pos_hint:{"center_x":.1,"center_y":.1}
+                            on_release:root.current="purchase"
+                        MDRaisedButton:
+                            text: "Add"
+                            font_size:20
+                            size_hint: 0.1,0.3
+                            pos_hint:{"center_x":.5,"center_y":.5}
+                            on_press:root.add5()
+    MDScreen:
+        name:"sale"
+        md_bg_color: [0, 128, 0, 0.5]
+        MDBoxLayout:
+            orientation:"vertical"
+            spacing:10
+            MDLabel:
+                text: "Manage Sales"
+                theme_text_color: "Custom"
+                text_color: 1,1,1,1
+                bold:True
+                font_size:40
+                pos_hint:{"center_x":.5,"center_y":.5}
+                halign:"center"
+                size_hint_y:.1
+            MDCard:
+                padding:30
+                pos_hint:{"center_x":.5,"center_y":.5}
+                size_hint_y:.8
+                size_hint_x:.9
+                elevation:4
+                shadow_radius: 6
+                shadow_offset:0, 2
+                md_bg_color: (1,1,1,1)
+                MDGridLayout:
+                    cols:2
+                    rows:1
+                    padding:50
+                    spacing:10
+                    size_hint_y:.8
+                    md_bg_color: [0, 128, 0, 0.5]
+                    MDRaisedButton:       
+                        text: 'Add A Sale'
+                        size_hint_y:.3
+                        size_hint_x:.3
+                        font_size:40
+                        on_release:root.current="add6"
+                    MDRaisedButton:       
+                        text: 'Ckeck Sales'
+                        size_hint_y:.3
+                        size_hint_x:.3
+                        font_size:40
+                        on_release:root.current="info"
+                    MDRaisedButton:       
+                        text: 'Previous'
+                        size_hint_y:.01
+                        size_hint_x:.035
+                        font_size:20
+                        on_release:root.current="first"
+    MDScreen:
+        name:"add6"
+        md_bg_color: [0, 128, 0, 0.5]
+        MDBoxLayout:
+            orientation:"vertical"
+            spacing:10
+            MDLabel:
+                text: "Add Sale"
+                theme_text_color: "Custom"
+                text_color: 255, 110, 71, 0.8
+                bold:True
+                font_size:40
+                pos_hint:{"center_x":.5,"center_y":.5}
+                halign:"center"
+                size_hint_y:.2
+
+            MDBoxLayout:
+                orientation: "horizontal"
+                size_hint_x: .7
+                size_hint_y:.8
+                pos_hint:{"center_x":.5,"center_y":.5}
+                MDBoxLayout:
+                    orientation:"vertical"
+                    spacing: 10
+                    MDTextField:
+                        id: sid
+                        hint_text: "ID"
+                        mode:"fill"
+                        size_hint: 0.9, None
+                        pos_hint: {"center_x":.5}
+                    MDTextField:
+                        id:snam
+                        hint_text: "Product Name"
+                        mode:"fill"
+                        size_hint: 0.9, None
+                        pos_hint: {"center_x":.5}
+                    MDTextField: 
+                        id: stype
+                        hint_text: "Product Type"
+                        mode: "fill"
+                        size_hint: 0.9, None
+                        pos_hint: {"center_x":.5}
+                    MDTextField: 
+                        id: squan
+                        hint_text: "Quantity"
+                        mode: "fill"
+                        size_hint: 0.9, None
+                        pos_hint: {"center_x":.5}
+                    MDTextField: 
+                        id: sprice
+                        hint_text: "Price"
+                        mode: "fill"
+                        size_hint: 0.9, None
+                        pos_hint: {"center_x":.5}
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+                        spacing: 10
+                        padding_x:dp(30)
+                        padding_y:dp(20)
+                        size_hint: 0.7, 0.3
+                        pos_hint:{"center_x":.5,"center_y":.5}
+                        MDRaisedButton:       
+                            text: 'Previous'
+                            font_size:20
+                            size_hint_y:.2
+                            size_hint_x:.4
+                            pos_hint:{"center_x":.1,"center_y":.1}
+                            on_release:root.current="sale"
+                        MDRaisedButton:
+                            text: "Add"
+                            font_size:20
+                            size_hint: 0.1,0.3
+                            pos_hint:{"center_x":.5,"center_y":.5}
+                            on_press:root.add6()
+    MDScreen:
+        name:"info"
+        md_bg_color: [0, 128, 0, 0.5]
+        MDBoxLayout:
+            orientation:"vertical"
+            spacing:10
+            MDLabel:
+                text: "Information"
+                theme_text_color: "Custom"
+                text_color: 1,1,1,1
+                bold:True
+                font_size:40
+                pos_hint:{"center_x":.5,"center_y":.5}
+                halign:"center"
+                size_hint_y:.1
+                MDRaisedButton:       
+                    text: 'Previous'
+                    size_hint_y:.01
+                    size_hint_x:.03
+                    font_size:20
+                    on_release:root.current="first"
